@@ -11,16 +11,25 @@ const Hello = (props) =>{  //componente de react, se utuliza el formato de emacs
     )
 }
 
+const Footer = () =>{
+    return(
+        <div>
+            greeting app created by <a href='https://github.com/mluukkai'>mluukkai</a>
+        </div>
+    )
+}
+
 const App =()=>{
     const name = 'josue' // si las propiedades son el resultado de operaciones o expresiones de javascript, se inseta entre corchetes{} de lo contrario se inserta entre comillas 'como strings'
     const age = 3
     return (
-        <div>
+        <>
             <h1>Saludos</h1>
             <Hello name ='luis' age='31'/> 
             <Hello name ={name} age={age} />
             <Hello name ='greis'age='32' />
-        </div>
+            <Footer />
+        </>
     )
 }
 
