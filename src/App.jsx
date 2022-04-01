@@ -2,33 +2,50 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import './App.css';
 
-const Hello = (props) =>{  //componente de react, se utuliza el formato de emacscript vigente para declarar funciones flecha en java script
-    // a los componenetes de react les podemos pasar parametros y tambien ser utilizados de manera recursiva
+const Header =(props)=>{
     return(
-        <div>
-            <p> Hello {props.name} you are  {props.age} years old</p>
-        </div>
+        <>
+            <h1>{props.course}</h1>
+        </>
     )
 }
 
-const Footer = () =>{
+const Content =(props)=>{
     return(
-        <div>
-            greeting app created by <a href='https://github.com/mluukkai'>mluukkai</a>
-        </div>
+        <>
+            <p>
+                {props.part}   {props.exercises}
+            </p>
+        </>
     )
 }
+
+const Total=(props)=>{
+    return(
+        <>
+            <p>
+                Total exercises:  {props.total}
+            </p>
+        </>
+    )
+}
+
 
 const App =()=>{
-    const name = 'josue' // si las propiedades son el resultado de operaciones o expresiones de javascript, se inseta entre corchetes{} de lo contrario se inserta entre comillas 'como strings'
-    const age = 3
+    const course = 'Half Stack application development'
+    const part1 = 'Fundamentals of React'
+    const exercises1 = 10
+    const part2 = 'Using props to pass data'
+    const exercises2 = 7
+    const part3 = 'State of a component'
+    const exercises3 = 14
     return (
         <>
-            <h1>Saludos</h1>
-            <Hello name ='luis' age='31'/> 
-            <Hello name ={name} age={age} />
-            <Hello name ='greis'age='32' />
-            <Footer />
+            <Header course ={course} />
+            <Content part={part1} exercises={exercises1} />
+            <Content part={part2} exercises={exercises2} />
+            <Content part={part3} exercises={exercises3} />
+            <Total total={exercises1+exercises2+exercises3} />
         </>
     )
 }
